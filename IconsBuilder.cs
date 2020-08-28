@@ -50,7 +50,7 @@ namespace IconsBuilder
         };
 
         private Queue<Entity> _addedIcon = new Queue<Entity>(128);
-        private int rnd = 1000;
+        // private int rnd = 1000;
 
         private void LoadConfig()
         {
@@ -205,11 +205,11 @@ namespace IconsBuilder
                 if (!entity.IsAlive) return null;
 
                 if (entity.League == LeagueType.Legion)
-                    return new LegionIcon(entity, GameController, Settings, modIcons);
+                    return new LegionIcon(entity, Settings, modIcons);
                 if (entity.League == LeagueType.Delirium)
-                    return new DeliriumIcon(entity, GameController, Settings, modIcons);
+                    return new DeliriumIcon(entity, Settings, modIcons);
 
-                return new MonsterIcon(entity, GameController, Settings, modIcons);
+                return new MonsterIcon(entity, Settings, modIcons);
             }
 
             //NPC

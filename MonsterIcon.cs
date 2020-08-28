@@ -14,7 +14,7 @@ namespace IconsBuilder
 {
     public class MonsterIcon : BaseIcon
     {
-        public MonsterIcon(Entity entity, GameController gameController, IconsBuilderSettings settings, Dictionary<string, Size2> modIcons)
+        public MonsterIcon(Entity entity, IconsBuilderSettings settings, Dictionary<string, Size2> modIcons)
             : base(entity, settings)
         {
             Update(entity, settings, modIcons);
@@ -50,8 +50,6 @@ namespace IconsBuilder
                 default:
                     throw new ArgumentException(
                         $"{nameof(MonsterIcon)} wrong rarity for {entity.Path}. Dump: {entity.GetComponent<ObjectMagicProperties>().DumpObject()}");
-
-                    break;
             }
 
             if (_HasIngameIcon && entity.HasComponent<MinimapIcon>() && !entity.GetComponent<MinimapIcon>().Name.Equals("NPC"))
@@ -90,8 +88,7 @@ namespace IconsBuilder
 
                 if (modName != null)
                 {
-                    MainTexture = new HudTexture("sprites.png");
-                    MainTexture.UV = SpriteHelper.GetUV(modIcons[modName], new Size2F(7, 8));
+                    MainTexture = new HudTexture("sprites.png") { UV = SpriteHelper.GetUV(modIcons[modName], new Size2F(7, 8)) };
                     Priority = IconPriority.VeryHigh;
                 }
                 else

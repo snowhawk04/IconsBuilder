@@ -15,8 +15,8 @@ namespace IconsBuilder
 {
     public class LegionIcon : BaseIcon
     {
-        public LegionIcon(Entity entity, GameController gameController, IconsBuilderSettings settings, Dictionary<string, Size2> modIcons) :
-            base(entity, settings)
+        public LegionIcon(Entity entity, IconsBuilderSettings settings, Dictionary<string, Size2> modIcons)
+            : base(entity, settings)
         {
             Update(entity, settings, modIcons);
         }
@@ -48,7 +48,6 @@ namespace IconsBuilder
                     break;
                 default:
                     throw new ArgumentException("Legion icon rarity corrupted.");
-                    break;
             }
 
             if (entity.Path.StartsWith("Metadata/Monsters/LegionLeague/MonsterChest", StringComparison.Ordinal) || Rarity == MonsterRarity.Unique)
@@ -81,8 +80,7 @@ namespace IconsBuilder
 
                     if (modName != null)
                     {
-                        MainTexture = new HudTexture("sprites.png");
-                        MainTexture.UV = SpriteHelper.GetUV(modIcons[modName], new Size2F(7, 8));
+                        MainTexture = new HudTexture("sprites.png") { UV = SpriteHelper.GetUV(modIcons[modName], new Size2F(7, 8)) };
                         Priority = IconPriority.VeryHigh;
                     }
                     else
