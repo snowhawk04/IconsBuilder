@@ -45,18 +45,25 @@ namespace IconsBuilder
                 CType = ChestType.Synthesis;
             else if (Entity.League == LeagueType.Legion)
                 CType = ChestType.Legion;
+            else if (Entity.League == LeagueType.Heist)
+                CType = ChestType.Heist;
             else
                 CType = ChestType.SmallChest;
 
             Show = () => !Entity.IsOpened;
 
-            if (!_HasIngameIcon)
-                MainTexture = new HudTexture {FileName = "sprites.png"};
-            else
+            if (CType != ChestType.Heist)
             {
-                MainTexture.Size = settings.SizeChestIcon;
-                Text = Entity.GetComponent<Render>()?.Name;
-                return;
+                if (!_HasIngameIcon)
+                {
+                    MainTexture = new HudTexture {FileName = "sprites.png"};
+                }
+                else
+                {
+                    MainTexture.Size = settings.SizeChestIcon;
+                    Text = Entity.GetComponent<Render>()?.Name;
+                    return;
+                }
             }
 
             switch (Rarity)
@@ -350,6 +357,15 @@ namespace IconsBuilder
                     MainTexture.UV = SpriteHelper.GetUV(MyMapIconsIndex.Divination);
                     Text = Entity.Path.Replace("Metadata/Chests/Labyrinth/Labyrinth", "");
                     MainTexture.Color = Color.ForestGreen;
+                    break;
+                case ChestType.Heist:
+                        //DebugWindow.LogMsg(Entity.Path + " [ChestType.Fossil]");
+                        //MainTexture.UV = SpriteHelper.GetUV(MyMapIconsIndex.Divination);
+                        Text = Entity.Path.Replace("Metadata/Chests/LeagueHeist/HeistChest", "").Replace("Thug", "")
+                            .Replace("Science", "").Replace("Military", "").Replace("Robot", "")
+                            .Replace("Secondary", "");
+
+                    //MainTexture.Color = Color.HotPink;
                     break;
                 case ChestType.Synthesis:
                     Priority = IconPriority.Critical;
