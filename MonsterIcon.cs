@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ExileCore;
 using ExileCore.PoEMemory.Components;
 using ExileCore.PoEMemory.MemoryObjects;
@@ -100,17 +101,25 @@ namespace IconsBuilder
                     {
                         case MonsterRarity.White:
                             MainTexture.UV = SpriteHelper.GetUV(MapIconsIndex.LootFilterLargeRedCircle);
+                            if (settings.ShowWhiteMonsterName)
+                                Text = RenderName.Split(',').FirstOrDefault();
                             break;
                         case MonsterRarity.Magic:
                             MainTexture.UV = SpriteHelper.GetUV(MapIconsIndex.LootFilterLargeBlueCircle);
+                            if (settings.ShowMagicMonsterName)
+                                Text = RenderName.Split(',').FirstOrDefault();
 
                             break;
                         case MonsterRarity.Rare:
                             MainTexture.UV = SpriteHelper.GetUV(MapIconsIndex.LootFilterLargeYellowCircle);
+                            if (settings.ShowRareMonsterName)
+                                Text = RenderName.Split(',').FirstOrDefault();
                             break;
                         case MonsterRarity.Unique:
                             MainTexture.UV = SpriteHelper.GetUV(MapIconsIndex.LootFilterLargeCyanHexagon);
                             MainTexture.Color = Color.DarkOrange;
+                            if (settings.ShowUniqueMonsterName)
+                                Text = RenderName.Split(',').FirstOrDefault();
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(

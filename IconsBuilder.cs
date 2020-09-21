@@ -247,7 +247,7 @@ namespace IconsBuilder
                 return new MiscIcon(entity, GameController, Settings);
             }
 
-            if (entity.HasComponent<MinimapIcon>() && entity.HasComponent<Targetable>())
+            if (entity.HasComponent<MinimapIcon>() && entity.HasComponent<Targetable>() && entity.League != LeagueType.Heist)
                 return new MiscIcon(entity, GameController, Settings);
 
             if (entity.Path.Contains("Metadata/Terrain/Leagues/Delve/Objects/EncounterControlObjects/AzuriteEncounterController"))
