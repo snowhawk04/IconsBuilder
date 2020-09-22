@@ -55,8 +55,8 @@ namespace IconsBuilder
                     break;
             }
 
-            if (_HasIngameIcon && entity.HasComponent<MinimapIcon>() && !entity.GetComponent<MinimapIcon>().Name.Equals("NPC") && entity.League != LeagueType.Heist)
-                return;
+            //if (_HasIngameIcon && entity.HasComponent<MinimapIcon>() && !entity.GetComponent<MinimapIcon>().Name.Equals("NPC") && entity.League != LeagueType.Heist)
+               // return;
 
             if (!entity.IsHostile)
             {
