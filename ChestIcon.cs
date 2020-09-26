@@ -46,7 +46,11 @@ namespace IconsBuilder
             else if (Entity.League == LeagueType.Legion)
                 CType = ChestType.Legion;
             else if (Entity.League == LeagueType.Heist)
+            {
+                if (Entity.Path.Contains("HeistChestPrimaryTarget"))
+                    CType = ChestType.SmallChest;
                 CType = ChestType.Heist;
+            }
             else
                 CType = ChestType.SmallChest;
 
