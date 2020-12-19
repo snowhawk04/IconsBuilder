@@ -34,7 +34,8 @@ namespace IconsBuilder
                 MainTexture.Size = settings.SizeDefaultIcon;
                 Text = RenderName;
                 Priority = IconPriority.VeryHigh;
-                if (entity.HasComponent<MinimapIcon>() && entity.GetComponent<MinimapIcon>().Name.Equals("DelveRobot", StringComparison.Ordinal)) Text = "Follow Me";
+<<<<<<< HEAD
+                if (entity.GetComponent<MinimapIcon>().Name.Equals("DelveRobot", StringComparison.Ordinal)) Text = "Follow Me";
                 //Delve Walls
                 if (entity.Path.Contains("Metadata/Terrain/Leagues/Delve/Objects/DelveWall"))
                 {
@@ -42,6 +43,10 @@ namespace IconsBuilder
                     MainTexture.UV = SpriteHelper.GetUV(MapIconsIndex.Entrance);
                     Show = () => entity.IsAlive;
                 }
+=======
+                if (entity.HasComponent<MinimapIcon>() && entity.GetComponent<MinimapIcon>().Name.Equals("DelveRobot", StringComparison.Ordinal)) Text = "Follow Me";
+
+>>>>>>> Arecurius0/master
                 return;
             }
 
