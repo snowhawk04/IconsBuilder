@@ -358,6 +358,7 @@ namespace IconsBuilder
                     Text = Entity.Path.Replace("Metadata/Chests/Labyrinth/Labyrinth", "");
                     MainTexture.Color = Color.ForestGreen;
                     break;
+                    /*
                 case ChestType.Heist:
                         //DebugWindow.LogMsg(Entity.Path + " [ChestType.Fossil]");
                         //MainTexture.UV = SpriteHelper.GetUV(MyMapIconsIndex.Divination);
@@ -367,6 +368,7 @@ namespace IconsBuilder
 
                     //MainTexture.Color = Color.HotPink;
                     break;
+                    */
                 case ChestType.Heist:
                         //DebugWindow.LogMsg(Entity.Path + " [ChestType.Fossil]");
                         //MainTexture.UV = SpriteHelper.GetUV(MyMapIconsIndex.Divination);
